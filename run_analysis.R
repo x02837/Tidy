@@ -34,13 +34,6 @@ extracted <- total[extract]
 activity_labels <- read.table('activity_labels.txt')
 ## name the columns
 names(activity_labels) <- c('Activity Number', 'Activity')
-library(plyr)
-library(dplyr)
-## merge the activity lables witht the activity numbers containined in the main data set
-merged <- merge(extracted, activity_labels, by.x = 'Activity Number', by.y = 'Activity Number', sort = FALSE)
-
-# From the data set in step 4, creates a second, independent tidy data set with 
-# the average of each variable for each activity and each subject.
 ## import the subject train and test data
 subjects_train <- read.table('./train/subject_train.txt')
 subjects_test <- read.table('./test/subject_test.txt')
@@ -48,13 +41,19 @@ subjects_test <- read.table('./test/subject_test.txt')
 subjects_total <- rbind(subjects_train, subjects_test)
 colnames(subjects_total) <- 'Subject'
 ## attach the subject data to the main set
-final <- cbind(merged, subjects_total)
+with_subjects <- cbind(extracted, subjects_total)
+# From the data set in step 4, creates a second, independent tidy data set with 
+# the average of each variable for each activity and each subject.
+## merge the activity lables witht the activity numbers containined in the main data set
+library(plyr)
+library(dplyr)
+merged <- merge(extracted, activity_labels, by.x = 'Activity Number', by.y = 'Activity Number', sort = FALSE)
 ## first column was Activity Number, remove that column
-final <- final[2:82]
+merged <- merged[2:82]
 ## load the reshape2 package for reshaping data frames
 library(reshape2)
 ## 'melt' the data to make Subject and Activity the id variables and everythign else a measure variable
-melted <- melt(final, id.vars = c('Subject', 'Activity'), measure.vars = c(names(final[1:79])))
+melted <- melt(merged, id.vars = c('Subject', 'Activity'), measure.vars = c(names(merged[1:79])))
 ## Recast the data as a data frame with subject and activity in first and second columns and the average/mean value 
 ## for each measure in the following columns. 
 wide_data <- dcast(melted, Subject + Activity ~ variable, mean)
