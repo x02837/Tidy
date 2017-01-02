@@ -4,7 +4,7 @@ John A. Goodwin
 _____________________________________________________________
   The purpose of this project is to produce a tidy data set based on raw smartphone activity data. The raw data comes from the University of California, Irvine Center for Machine Learning and Intelligence Systems, available at <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphone>. This project takes Activities of Daily Living data collected from the accelerometers from the Samsung Galaxy S smartphone and complies them into a tidy data set with only the mean and standard deveiation for each measurement recorded. 
 
-    The raw data initially consisted of two randomly partitioned groups, the training data (70%) and test data (30%), listed in text files. Each group contained a subject identifier, activity label, vector of time/frequency variables, triaxial angular velocity data and triaxial acceleration data. For purposes of this assignment, analysis focuses on the X and Y files which include mean and standard deviation calculations for the inertial data. 
+   The raw data initially consisted of two randomly partitioned groups, the training data (70%) and test data (30%), listed in text files. Each group contained a subject identifier, activity label, vector of time/frequency variables, triaxial angular velocity data and triaxial acceleration data. For purposes of this assignment, analysis focuses on the X and Y files which include mean and standard deviation calculations for the inertial data. 
 ___________________________________________________________
 The data set includes the following files
 
