@@ -1,0 +1,89 @@
+Coursera Assignment: Getting and Cleaning Data Course Project
+_____________________________________________________________
+John A. Goodwin 
+_____________________________________________________________
+This code book is based on data from the University of California, Irvine Center for Machine Learning and Intelligence Systems, available at <http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphone>. 
+
+Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013. 
+____________________________________________________________
+Subject 
+     Numerical id for 30 anyonomys subjects, aged between 19-48 years, who conducted 1-2 of 6 possible activities while wearing a Samsung Galaxy SII smartphone to generate data
+     
+Activity
+     Six activities used to generate data on human motion recorded for 2.56 second windows. Some subjects performed two activities. 
+          Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, Laying
+
+Measure variables 
+The original data set included the following measurements captured by the phone using an embedded accelerometer and gyroscope at a constant rate of 50Hz. Samples were taken over a 2.56 second window with 50% overlap resulting in 128 readings/window. For each window the following vector a features were calculated using variables from time and frequency domains. 
+
+The 't' prefix indidates time while the 'f' prefix indicates frequency. 
+
+tBodyAcc-XYZ
+ Time domain of Body Accleration (distance/time^2) in the X, Y and Z directions
+tGravityAcc-XYZ
+ Time domain of Gravity Acceleration (distance/time^2) in the X, Y and Z directions
+tBodyAccJerk-XYZ
+ Time domain Body Accelerometer Jerk (distance/time^3) in the X, Y and Z directions
+tBodyGyro-XYZ
+ Time domain Body velocity (distance/time) from the Gyroscope in the X, Y and Z directions
+tBodyGyroJerk-XYZ
+ Time domain accleration (distance/time^2) from the Gyroscope in the X, Y and Z directions
+tBodyAccMag
+ Time domain Body Acceleration Magnitude 
+tGravityAccMag
+ Time domain Gravity Acceleration Magnitude
+tBodyAccJerkMag
+ Time domain Accerlerometer Jerk (distance/time^3) Magnitude
+tBodyGyroMag
+ Time domain Gyroscope Magnitude
+tBodyGyroJerkMag
+ Time domain Body Gyroscope Jerk (distance/time^3) Magnitude
+fBodyAcc-XYZ 
+ Frequency domain Body Accerlation (distance/time^2) in the X, Y and Z directions
+fBodyAccJerk-XYZ
+ Frequency domain Body Acclerometer Jerk (distance/time^3) in the X, Y, and Z directions
+fBodyGyro-XYZ
+ Frequency Gyroscope velocity (distance/time) in the X, Y and Z directions
+fBodyAccMag
+ Frequency domain Body Acceleration (distance/time^2) Magnitude
+fBodyAccJerkMag
+ Frequency domain Body Accerlerometer Jerk (distance/time^3) Magnitude
+fBodyGyroMag
+ Frequency domain Gyroscope Magnitude
+fBodyGyroJerkMag
+ Frequency domain Gyroscope Jerk (distance/time^3) Magnitude
+
+The set of variables that were estimated from these signals in the original data were:
+
+mean(): Mean value
+std(): Standard deviation
+mad(): Median absolute deviation 
+max(): Largest value in array
+min(): Smallest value in array
+sma(): Signal magnitude area
+energy(): Energy measure. Sum of the squares divided by the number of values. 
+iqr(): Interquartile range 
+entropy(): Signal entropy
+arCoeff(): Autorregresion coefficients with Burg order equal to 4
+correlation(): correlation coefficient between two signals
+maxInds(): index of the frequency component with largest magnitude
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency
+skewness(): skewness of the frequency domain signal 
+kurtosis(): kurtosis of the frequency domain signal 
+bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
+angle(): Angle between to vectors.
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+ Mean gravitational accerleration
+tBodyAccMean
+ Mean time domain body accerleration
+tBodyAccJerkMean
+ Mean Body accelerometer Jerk
+tBodyGyroMean
+ Mean time domain body gyroscope velocity 
+tBodyGyroJerkMean
+ Mean time domain body gyroscope jerk
+
+In the course of tidying the data, only those measure variables that included mean and standard deviation measurents were extracted from the raw data. The resulting 79 measure variables include the mean frequency measures as well on the basis the data may be of use in later analysis. 
